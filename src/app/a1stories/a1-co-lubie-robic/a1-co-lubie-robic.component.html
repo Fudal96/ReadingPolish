@@ -69,4 +69,42 @@
       </tab>
     </tabset>
   </section>
+
+  <!---------------Exercises-------------------->
+
+  <section class="exercises-wrap">
+    <tabset class="exercises-tabs">
+      <tab heading="Exercise 1">
+        <h5>Please answer the following questions of understanding</h5>
+
+        <div class="question-wrapper">
+          <div class="question">
+            <span>Question 1:</span>
+            <p>Jakie jest największe hobby Maćka?</p>
+          </div>
+          <div class="answers">
+            <button  data-answer="correct" (click)="checkAnswer($event)">A. Malarstwo</button>
+            <button data-answer="false" (click)="checkAnswer($event)">B. Koszykówka</button>
+            <button data-answer="false" (click)="checkAnswer($event)">C. Pilka nożna</button>
+            <button data-answer="false" (click)="checkAnswer($event)">D. Karate</button>
+          </div>
+        </div>
+
+        <div class="question-wrapper">
+          <div class="question">
+            <span>Question 2:</span>
+            <p>Kim jest Betka?</p>
+          </div>
+          <div class="answers">
+            <button  data-answer="false" (click)="checkAnswer($event)">A. Mamą Maćka</button>
+            <button data-answer="false" (click)="checkAnswer($event)">B. Siostrą Maćka mamy</button>
+            <button data-answer="correct" (click)="checkAnswer($event)">C. Przyjaciółką Maćka</button>
+            <button data-answer="false" (click)="checkAnswer($event)">D. Kuzynką Maćka</button>
+          </div>
+        </div>
+
+      </tab>
+    </tabset>
+  </section>
+
 </main>

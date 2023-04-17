@@ -15,7 +15,58 @@ main {
 h3 {
   padding: 13px;
 }
+h5 {
+  padding: 13px;
+}
 
 .pol {
   font-size: 18px;
+}
+
+.question-wrapper {
+  margin-bottom: 20px;
+}
+.question {
+  padding: 10px;
+}
+
+.question span {
+  background-color: red;
+  padding: 6px;
+  color: white;
+}
+
+.question p {
+  padding: 6px;
+  margin-top: 5px;
+}
+
+.answers {
+  margin-top: -12px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.answers.disable {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.answers button {
+  width: 80%;
+  margin: auto;
+  text-align: left;
+  border-radius: 3px;
+  border: 1px solid gray;
+}
+
+.answers button.correct {
+  background-color: green;
+  color: white;
+}
+
+.answers button.false {
+  background-color: red;
+  color: white;
 }
