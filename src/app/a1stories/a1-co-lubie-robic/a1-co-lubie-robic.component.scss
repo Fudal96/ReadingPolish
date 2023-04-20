@@ -53,6 +53,12 @@ h5 {
   opacity: 0.5;
 }
 
+.answers.restart {
+  pointer-events: all;
+  opacity: 1;
+  background: none;
+}
+
 .answers button {
   width: 80%;
   margin: auto;
@@ -70,3 +76,37 @@ h5 {
   background-color: red;
   color: white;
 }
+
+.info-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+
+.info-box img {
+  width: 48px;
+  height: 48px;
+}
+
+.info-box span {
+  font-size: 18px;
+}
+
+.result-box {
+  text-align: center;
+  padding: 5px;
+}
+
+.for-all {
+  display: flex;
+  flex-direction: column;
+}
+
+.restart-test {
+  display: flex;
+  justify-content: center;
+}
+
+
+
