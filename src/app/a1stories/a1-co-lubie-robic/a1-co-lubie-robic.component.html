@@ -177,6 +177,45 @@
         <button (click)="restartTest()">Restart the test</button>
       </div>
       </tab>
+        <!---------------Exercise 2-------------------->
+        <tab heading="Exercise 2">
+          <section class="exercise-two-container">
+            <h5>Can you put the words in the correct order so that the sentence makes sense?</h5>
+            <div class="question">
+              <span>Sentence 1:</span>
+            </div>
+          <div class="sentence-container">
+            <ul>
+              <li *ngFor="let sen of sentence"><button (click)="removeWord($event)">{{sen}}</button></li>
+            </ul>
+          </div>
+
+          <div #appearBack class="words-container">
+            <button class="bt" value="malarstwo" (click)="addWord($event)">malarstwo</button>
+            <button class="bt" value="największym" (click)="addWord($event)">największym</button>
+            <button class="bt" value="hobby" (click)="addWord($event)">hobby</button>
+            <button class="bt" value="jest" (click)="addWord($event)">jest</button>
+
+          </div>
+
+          <div class="question">
+            <span>Sentence 2:</span>
+          </div>
+        <div class="sentence-container">
+          <ul>
+            <li *ngFor="let sen of sentence2"><button (click)="removeWord2($event)">{{sen}}</button></li>
+          </ul>
+        </div>
+
+        <div #appearBack2 class="words-container">
+          <button class="bt" value="rowerze" (click)="addWord2($event)">rowerze</button>
+          <button class="bt" value="lubię" (click)="addWord2($event)">lubię</button>
+          <button class="bt" value="na" (click)="addWord2($event)">na</button>
+          <button class="bt" value="jeździć" (click)="addWord2($event)">jeździć</button>
+
+        </div>
+        </section>
+        </tab>
     </tabset>
   </section>
 

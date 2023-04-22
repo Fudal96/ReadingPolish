@@ -23,6 +23,8 @@ h5 {
   font-size: 18px;
 }
 
+// Exercise 1
+
 .question-wrapper {
   margin-bottom: 20px;
 }
@@ -106,6 +108,54 @@ h5 {
 .restart-test {
   display: flex;
   justify-content: center;
+}
+
+// Exercise 2
+.exercise-two-container {
+
+  padding: 4px;
+}
+
+.sentence-container {
+  margin-top: 12px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.sentence-container button {
+  border: none;
+  background-color: green;
+  color: white;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.sentence-container ul {
+  list-style: none;
+  display: flex;
+  gap: 5px;
+}
+
+.words-container {
+  margin-bottom: 25px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+}
+
+.words-container button {
+  border: none;
+  background-color: green;
+  color: white;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.bt.disappear {
+  display: none;
 }
 
 
