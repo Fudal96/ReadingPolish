@@ -181,14 +181,16 @@
         <tab heading="Exercise 2">
           <section class="exercise-two-container">
             <h5>Can you put the words in the correct order so that the sentence makes sense?</h5>
+            <p>Once the order is correct you will get a Congratulations Message!</p>
             <div class="question">
               <span>Sentence 1:</span>
             </div>
           <div class="sentence-container">
-            <ul>
+            <ul #animate>
               <li *ngFor="let sen of sentence"><button (click)="removeWord($event)">{{sen}}</button></li>
             </ul>
           </div>
+          <p #correcttext class="correct-text">Brawo, jesteś najlepszy!</p>
 
           <div #appearBack class="words-container">
             <button class="bt" value="malarstwo" (click)="addWord($event)">malarstwo</button>
@@ -202,18 +204,69 @@
             <span>Sentence 2:</span>
           </div>
         <div class="sentence-container">
-          <ul>
+          <ul #animate2>
             <li *ngFor="let sen of sentence2"><button (click)="removeWord2($event)">{{sen}}</button></li>
           </ul>
         </div>
+        <p #correcttext2 class="correct-text">Super!</p>
 
         <div #appearBack2 class="words-container">
           <button class="bt" value="rowerze" (click)="addWord2($event)">rowerze</button>
           <button class="bt" value="lubię" (click)="addWord2($event)">lubię</button>
           <button class="bt" value="na" (click)="addWord2($event)">na</button>
           <button class="bt" value="jeździć" (click)="addWord2($event)">jeździć</button>
+    </div>
 
-        </div>
+    <div class="question">
+      <span>Sentence 3:</span>
+    </div>
+  <div class="sentence-container">
+    <ul #animate3>
+      <li *ngFor="let sen of sentence3"><button (click)="removeWord3($event)">{{sen}}</button></li>
+    </ul>
+  </div>
+  <p #correcttext3 class="correct-text">Bardzo dobrze!</p>
+
+  <div #appearBack3 class="words-container">
+    <button class="bt" value="uzdolniony" (click)="addWord3($event)">uzdolniony</button>
+    <button class="bt" value="jestem" (click)="addWord3($event)">jestem</button>
+    <button class="bt" value="sportowo" (click)="addWord3($event)">sportowo</button>
+</div>
+
+<div class="question">
+  <span>Sentence 4:</span>
+</div>
+<div class="sentence-container">
+<ul #animate4>
+  <li *ngFor="let sen of sentence4"><button (click)="removeWord4($event)">{{sen}}</button></li>
+</ul>
+</div>
+<p #correcttext4 class="correct-text">No nieźle!</p>
+
+<div #appearBack4 class="words-container">
+<button class="bt" value="rzeczy" (click)="addWord4($event)">rzeczy</button>
+<button class="bt" value="papieru" (click)="addWord4($event)">papieru</button>
+<button class="bt" value="z" (click)="addWord4($event)">z</button>
+<button class="bt" value="robić" (click)="addWord4($event)">robić</button>
+</div>
+
+<div class="question">
+  <span>Sentence 5:</span>
+</div>
+<div class="sentence-container">
+<ul #animate5>
+  <li *ngFor="let sen of sentence5"><button (click)="removeWord5($event)">{{sen}}</button></li>
+</ul>
+</div>
+<p #correcttext5 class="correct-text">Brawo Brawo Brawo!</p>
+
+<div #appearBack5 class="words-container">
+<button class="bt" value="muzykę" (click)="addWord5($event)">muzykę</button>
+<button class="bt" value="i" (click)="addWord5($event)">i</button>
+<button class="bt" value="lubię" (click)="addWord5($event)">lubię</button>
+<button class="bt" value="taniec" (click)="addWord5($event)">taniec</button>
+</div>
+
         </section>
         </tab>
     </tabset>

@@ -11,9 +11,26 @@ import { Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angu
 export class A1CoLubieRobicComponent {
 points = 0;
 answered = 0;
+@ViewChildren('reset, reset2, reset3, reset4, reset5', {read: ElementRef}) childComp:QueryList<ElementRef> | undefined
+
+
 @ViewChild('appearBack') appearBack: ElementRef | undefined;
 @ViewChild('appearBack2') appearBack2: ElementRef | undefined;
-@ViewChildren('reset, reset2, reset3, reset4, reset5', {read: ElementRef}) childComp:QueryList<ElementRef> | undefined
+@ViewChild('appearBack3') appearBack3: ElementRef | undefined;
+@ViewChild('appearBack4') appearBack4: ElementRef | undefined;
+@ViewChild('appearBack5') appearBack5: ElementRef | undefined;
+
+@ViewChild('animate') animate: ElementRef | undefined;
+@ViewChild('animate2') animate2: ElementRef | undefined;
+@ViewChild('animate3') animate3: ElementRef | undefined;
+@ViewChild('animate4') animate4: ElementRef | undefined;
+@ViewChild('animate5') animate5: ElementRef | undefined;
+
+@ViewChild('correcttext') correctText: ElementRef | undefined;
+@ViewChild('correcttext2') correctText2: ElementRef | undefined;
+@ViewChild('correcttext3') correctText3: ElementRef | undefined;
+@ViewChild('correcttext4') correctText4: ElementRef | undefined;
+@ViewChild('correcttext5') correctText5: ElementRef | undefined;
 
 
 sentence = [
@@ -21,6 +38,18 @@ sentence = [
 ];
 
 sentence2 = [
+  'Bardzo'
+];
+
+sentence3 = [
+  'Nie'
+];
+
+sentence4 = [
+  'Lubię'
+];
+
+sentence5 = [
   'Bardzo'
 ];
 
@@ -87,7 +116,8 @@ sentence2 = [
 
   checkOrder() {
     if (this.sentence[1] === 'największym' && this.sentence[2] === 'hobby' && this.sentence[3] === 'jest' && this.sentence[4] === 'malarstwo') {
-      console.log('itworks')
+      this.animate?.nativeElement.classList.add('animate')
+      this.correctText?.nativeElement.classList.add('active')
     } else if (this.sentence.length === 5) {
       console.log('wrong order')
     }
@@ -122,9 +152,118 @@ sentence2 = [
 
   checkOrder2() {
     if (this.sentence2[1] === 'lubię' && this.sentence2[2] === 'jeździć' && this.sentence2[3] === 'na' && this.sentence2[4] === 'rowerze') {
-      console.log('itworks2')
+      this.animate2?.nativeElement.classList.add('animate')
+      this.correctText2?.nativeElement.classList.add('active')
     } else if (this.sentence2.length === 5) {
       console.log('wrong order2')
+    }
+  }
+
+  /////// Exercise 2 Below Sentence 3 ///////////////////////////////
+
+  removeWord3(event: any) {
+    const value = event.target.innerText
+    this.sentence3.forEach((element, index) => {
+      if (element === value && index != 0) this.sentence3.splice(index, 1)
+    })
+    const children = this.appearBack3?.nativeElement.children
+    const getEachChild = [...children]
+    getEachChild.forEach(x => {
+      if (x.value === value) {
+        x.classList.remove('disappear')
+      }
+    })
+
+  }
+
+
+  addWord3(event: any) {
+    const word = event.target.value
+    this.sentence3.push(word)
+    const wordClicked = event.target
+    wordClicked.classList.add('disappear')
+    this.checkOrder3()
+  }
+
+
+  checkOrder3() {
+    if (this.sentence3[1] === 'jestem' && this.sentence3[2] === 'uzdolniony' && this.sentence3[3] === 'sportowo') {
+      this.animate3?.nativeElement.classList.add('animate')
+      this.correctText3?.nativeElement.classList.add('active')
+    } else if (this.sentence3.length === 5) {
+      console.log('wrong order3')
+    }
+  }
+
+  /////// Exercise 2 Below Sentence 4 ///////////////////////////////
+
+  removeWord4(event: any) {
+    const value = event.target.innerText
+    this.sentence4.forEach((element, index) => {
+      if (element === value && index != 0) this.sentence4.splice(index, 1)
+    })
+    const children = this.appearBack4?.nativeElement.children
+    const getEachChild = [...children]
+    getEachChild.forEach(x => {
+      if (x.value === value) {
+        x.classList.remove('disappear')
+      }
+    })
+
+  }
+
+
+  addWord4(event: any) {
+    const word = event.target.value
+    this.sentence4.push(word)
+    const wordClicked = event.target
+    wordClicked.classList.add('disappear')
+    this.checkOrder4()
+  }
+
+
+  checkOrder4() {
+    if (this.sentence4[1] === 'robić' && this.sentence4[2] === 'rzeczy' && this.sentence4[3] === 'z' && this.sentence4[4] === 'papieru') {
+      this.animate4?.nativeElement.classList.add('animate')
+      this.correctText4?.nativeElement.classList.add('active')
+    } else if (this.sentence4.length === 5) {
+      console.log('wrong order4')
+    }
+  }
+
+  /////// Exercise 2 Below Sentence 5 ///////////////////////////////
+
+  removeWord5(event: any) {
+    const value = event.target.innerText
+    this.sentence5.forEach((element, index) => {
+      if (element === value && index != 0) this.sentence5.splice(index, 1)
+    })
+    const children = this.appearBack5?.nativeElement.children
+    const getEachChild = [...children]
+    getEachChild.forEach(x => {
+      if (x.value === value) {
+        x.classList.remove('disappear')
+      }
+    })
+
+  }
+
+
+  addWord5(event: any) {
+    const word = event.target.value
+    this.sentence5.push(word)
+    const wordClicked = event.target
+    wordClicked.classList.add('disappear')
+    this.checkOrder5()
+  }
+
+
+  checkOrder5() {
+    if (this.sentence5[1] === 'lubię' && this.sentence5[2] === 'muzykę' && this.sentence5[3] === 'i' && this.sentence5[4] === 'taniec' || this.sentence5[1] === 'lubię' && this.sentence5[2] === 'taniec' && this.sentence5[3] === 'i' && this.sentence5[4] === 'muzykę')  {
+      this.animate5?.nativeElement.classList.add('animate')
+      this.correctText5?.nativeElement.classList.add('active')
+    } else if (this.sentence5.length === 5) {
+      console.log('wrong order5')
     }
   }
 
