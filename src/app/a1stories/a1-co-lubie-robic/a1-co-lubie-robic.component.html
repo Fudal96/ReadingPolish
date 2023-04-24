@@ -269,6 +269,19 @@
 
         </section>
         </tab>
+        <!---------------Exercise 3 -------------------->
+        <tab heading="Exercise 3">
+          <section class="exercise-two-container">
+            <h5>Can you find the matching words?</h5>
+
+            <div class="board">
+              <div #matchgame class="board-game">
+                <button *ngFor="let word of matchArray" (click)="checkMatch($event)">{{word.label}}</button>
+              </div>
+            </div>
+
+          </section>
+        </tab>
     </tabset>
   </section>
 

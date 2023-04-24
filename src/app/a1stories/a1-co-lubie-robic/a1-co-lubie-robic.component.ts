@@ -1,4 +1,4 @@
-import { Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 
 @Component({
   selector: 'app-a1-co-lubie-robic',
@@ -8,7 +8,7 @@ import { Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angu
 
 
 
-export class A1CoLubieRobicComponent {
+export class A1CoLubieRobicComponent implements OnInit{
 points = 0;
 answered = 0;
 @ViewChildren('reset, reset2, reset3, reset4, reset5', {read: ElementRef}) childComp:QueryList<ElementRef> | undefined
@@ -32,6 +32,8 @@ answered = 0;
 @ViewChild('correcttext4') correctText4: ElementRef | undefined;
 @ViewChild('correcttext5') correctText5: ElementRef | undefined;
 
+@ViewChild('matchgame') matchGame: ElementRef | undefined;
+
 
 sentence = [
   'Moim'
@@ -53,6 +55,46 @@ sentence5 = [
   'Bardzo'
 ];
 
+//matchArray = ['go', 'try', 'próbować', 'iść', 'pływać', 'swim', 'uzdolniony', 'talented', 'piątek', 'friday', 'szybko', 'fast', 'muzyka', 'music', 'taniec', 'dance', 'teatr', 'theater']
+
+matchArray = [
+  {
+    label: 'go',
+    value: 'go'
+  },
+  {
+    label: 'iść',
+    value: 'go'
+  },
+  {
+    label: 'try',
+    value: 'try'
+  },
+  {
+    label: 'próbować',
+    value: 'try'
+  },
+]
+
+checkArray = ['']
+checkArrayByLabel = ['']
+
+
+ngOnInit(): void {
+  this.shuffleArray(this.matchArray);
+}
+
+shuffleArray(matchArray: any) {
+  let currentIndex = matchArray.length, randomIndex;
+
+  while (currentIndex != 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    [matchArray[currentIndex], matchArray[randomIndex]] = [matchArray[randomIndex], matchArray[currentIndex]];
+  }
+  return matchArray
+}
 
 /////// Exercise 1 Below ///////////////////////////////
 
@@ -266,6 +308,62 @@ sentence5 = [
       console.log('wrong order5')
     }
   }
+
+
+   /////// Exercise 3 ////////////////////////////////////////////
+
+   checkMatch(event: any) {
+    const wordToCheck = event.target
+    console.log(wordToCheck)
+    wordToCheck.classList.add('clicked')
+
+    const findInArray = this.matchArray.find(x => x.label === event.target.innerText)
+    this.checkArray.push(findInArray?.value!)
+    this.checkArrayByLabel.push(findInArray?.label!)
+    console.log(this.checkArrayByLabel)
+   if (this.checkArray[1] === this.checkArray[2]) {
+    console.log('its a match')
+    const boardGameChildrenHTML = this.matchGame?.nativeElement.children
+    const boardGameChildren = [...boardGameChildrenHTML]
+
+
+    const findClicked = boardGameChildren.find(x => x.innerText === this.checkArrayByLabel[1])
+    const findClicked2 = boardGameChildren.find(x => x.innerText === this.checkArrayByLabel[2])
+
+    findClicked.classList.remove('clicked')
+    findClicked2.classList.remove('clicked')
+    findClicked.classList.add('matched')
+    findClicked2.classList.add('matched')
+
+  this.checkArray = ['']
+  this.checkArrayByLabel = ['']
+
+} else if (this.checkArray[1] !== this.checkArray[2] && this.checkArray.length === 3) {
+  const boardGameChildrenHTML = this.matchGame?.nativeElement.children
+    const boardGameChildren = [...boardGameChildrenHTML]
+
+    const findClicked = boardGameChildren.find(x => x.innerText === this.checkArrayByLabel[1])
+    const findClicked2 = boardGameChildren.find(x => x.innerText === this.checkArrayByLabel[2])
+  findClicked.classList.add('notmatched')
+    findClicked2.classList.add('notmatched')
+  setTimeout(() => {
+    console.log('its a mismatch')
+
+
+    findClicked.classList.remove('clicked')
+    findClicked2.classList.remove('clicked')
+    findClicked.classList.remove('notmatched')
+    findClicked2.classList.remove('notmatched')
+
+
+    this.checkArray = ['']
+    this.checkArrayByLabel = ['']
+  }, 1000);
+
+}
+
+
+   }
 
 }
 

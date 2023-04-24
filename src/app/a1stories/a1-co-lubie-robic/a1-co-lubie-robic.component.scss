@@ -207,3 +207,39 @@ h5 {
   }
 }
 
+// Exercise 3
+
+.board {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.board-game {
+  width: 96%;
+}
+
+.board-game button {
+  width: 30%;
+  height: 48px;
+  margin-right: 3.33%;
+  margin-bottom: 6px;
+}
+
+.board-game button.clicked {
+  background-color: rgb(46, 42, 42);
+  color: white;
+  pointer-events: none;
+}
+.board-game button.matched {
+  background-color: green;
+  color: white;
+  pointer-events: none;
+}
+.board-game button.notmatched {
+  background-color: red;
+  color: white;
+}
+
+
