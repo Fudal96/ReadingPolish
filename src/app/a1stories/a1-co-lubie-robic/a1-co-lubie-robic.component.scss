@@ -225,6 +225,7 @@ h5 {
   height: 48px;
   margin-right: 3.33%;
   margin-bottom: 6px;
+  border: none;
 }
 
 .board-game button.clicked {
@@ -240,6 +241,21 @@ h5 {
 .board-game button.notmatched {
   background-color: red;
   color: white;
+}
+.board-game button.turnoff {
+  pointer-events: none;
+}
+
+.board-game-reset {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.board-game-reset button {
+  border: none;
+  padding: 8px 16px;
+  
 }
 
 

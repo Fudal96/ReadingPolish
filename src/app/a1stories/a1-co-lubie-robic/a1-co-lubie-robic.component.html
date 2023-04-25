@@ -279,6 +279,9 @@
                 <button *ngFor="let word of matchArray" (click)="checkMatch($event)">{{word.label}}</button>
               </div>
             </div>
+            <div class="board-game-reset">
+              <button [disabled]="matchedWords !== 9" (click)="resetBoardGame()">Play again</button>
+            </div>
 
           </section>
         </tab>

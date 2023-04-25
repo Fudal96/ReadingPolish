@@ -74,10 +74,69 @@ matchArray = [
     label: 'próbować',
     value: 'try'
   },
+  {
+    label: 'pływać',
+    value: 'swim'
+  },
+  {
+    label: 'swim',
+    value: 'swim'
+  },
+  {
+    label: 'uzdolniony',
+    value: 'talented'
+  },
+  {
+    label: 'talented',
+    value: 'talented'
+  },
+  {
+    label: 'piątek',
+    value: 'friday'
+  },
+  {
+    label: 'friday',
+    value: 'friday'
+  },
+  {
+    label: 'szybko',
+    value: 'fast'
+  },
+  {
+    label: 'fast',
+    value: 'fast'
+  },
+  {
+    label: 'muzyka',
+    value: 'music'
+  },
+  {
+    label: 'music',
+    value: 'music'
+  },
+  {
+    label: 'taniec',
+    value: 'dance'
+  },
+  {
+    label: 'dance',
+    value: 'dance'
+  },
+  {
+    label: 'teatr',
+    value: 'theatre'
+  },
+  {
+    label: 'theatre',
+    value: 'theatre'
+  },
+
 ]
 
 checkArray = ['']
 checkArrayByLabel = ['']
+
+matchedWords = 0;
 
 
 ngOnInit(): void {
@@ -314,15 +373,13 @@ shuffleArray(matchArray: any) {
 
    checkMatch(event: any) {
     const wordToCheck = event.target
-    console.log(wordToCheck)
     wordToCheck.classList.add('clicked')
 
     const findInArray = this.matchArray.find(x => x.label === event.target.innerText)
     this.checkArray.push(findInArray?.value!)
     this.checkArrayByLabel.push(findInArray?.label!)
-    console.log(this.checkArrayByLabel)
+
    if (this.checkArray[1] === this.checkArray[2]) {
-    console.log('its a match')
     const boardGameChildrenHTML = this.matchGame?.nativeElement.children
     const boardGameChildren = [...boardGameChildrenHTML]
 
@@ -335,6 +392,8 @@ shuffleArray(matchArray: any) {
     findClicked.classList.add('matched')
     findClicked2.classList.add('matched')
 
+    this.matchedWords++
+
   this.checkArray = ['']
   this.checkArrayByLabel = ['']
 
@@ -344,17 +403,19 @@ shuffleArray(matchArray: any) {
 
     const findClicked = boardGameChildren.find(x => x.innerText === this.checkArrayByLabel[1])
     const findClicked2 = boardGameChildren.find(x => x.innerText === this.checkArrayByLabel[2])
-  findClicked.classList.add('notmatched')
+    findClicked.classList.add('notmatched')
     findClicked2.classList.add('notmatched')
+    boardGameChildren.forEach(x => x.classList.add('turnoff'))
+
   setTimeout(() => {
-    console.log('its a mismatch')
+
 
 
     findClicked.classList.remove('clicked')
     findClicked2.classList.remove('clicked')
     findClicked.classList.remove('notmatched')
     findClicked2.classList.remove('notmatched')
-
+    boardGameChildren.forEach(x => x.classList.remove('turnoff'))
 
     this.checkArray = ['']
     this.checkArrayByLabel = ['']
@@ -363,6 +424,15 @@ shuffleArray(matchArray: any) {
 }
 
 
+   }
+
+   resetBoardGame() {
+    const boardGameChildrenHTML = this.matchGame?.nativeElement.children
+    const boardGameChildren = [...boardGameChildrenHTML]
+    console.log(boardGameChildren)
+    boardGameChildren.forEach(x => x.classList.remove('matched'))
+    this.shuffleArray(this.matchArray);
+    this.matchedWords = 0;
    }
 
 }
